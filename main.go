@@ -1,7 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"time"
 
-func main(){
-	fmt.Println("Hello, World!")
+	"pokedexcli/internal/pokeapi"
+)
+
+func main() {
+	pokeClient := pokeapi.NewClient(5 * time.Second)
+	cfg := &config{
+		commands:      getCommands(),
+		pokeapiClient: pokeClient,
+	}
+
+	startRepl(cfg)
 }
