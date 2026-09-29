@@ -20,7 +20,9 @@ func startRepl(cfg *config) {
 	reader := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Print("Pokedex > ")
-		reader.Scan()
+		if !reader.Scan() {
+			break
+		}
 
 		words := cleanInput(reader.Text())
 		if len(words) == 0 {
@@ -40,6 +42,10 @@ func startRepl(cfg *config) {
 			fmt.Println("Unknown command")
 			continue
 		}
+	}
+
+	if err := reader.Err(); err != nil {
+		fmt.Println("error reading input:", err)
 	}
 }
 
