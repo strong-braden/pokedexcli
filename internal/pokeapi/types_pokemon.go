@@ -4,12 +4,12 @@ type Pokemon struct {
 	// ID             int    `json:"id"`
 	Name           string `json:"name"`
 	BaseExperience int    `json:"base_experience"`
-	// Height         int    `json:"height"`
+	Height         int    `json:"height"`
 	// IsDefault      bool   `json:"is_default"`
 	// Order          int    `json:"order"`
-	// Weight         int    `json:"weight"`
+	Weight int `json:"weight"`
 	//
-	//	Abilities      []struct {
+	// Abilities      []struct {
 	//		IsHidden bool `json:"is_hidden"`
 	//		Slot     int  `json:"slot"`
 	//		Ability  struct {
@@ -392,14 +392,14 @@ type Pokemon struct {
 	//		Legacy string `json:"legacy"`
 	//	} `json:"cries"`
 	//
-	//	Stats []struct {
-	//		BaseStat int `json:"base_stat"`
-	//		Effort   int `json:"effort"`
-	//		Stat     struct {
-	//			Name string `json:"name"`
-	//			URL  string `json:"url"`
-	//		} `json:"stat"`
-	//	} `json:"stats"`
+	Stats []struct {
+		BaseStat int `json:"base_stat"`
+		// Effort   int `json:"effort"`
+		Stat struct {
+			Name string `json:"name"`
+			// URL  string `json:"url"`
+		} `json:"stat"`
+	} `json:"stats"`
 	//
 	//	PastStats []struct {
 	//		Generation struct {
@@ -416,13 +416,13 @@ type Pokemon struct {
 	//		} `json:"stats"`
 	//	} `json:"past_stats"`
 	//
-	//	Types []struct {
-	//		Slot int `json:"slot"`
-	//		Type struct {
-	//			Name string `json:"name"`
-	//			URL  string `json:"url"`
-	//		} `json:"type"`
-	//	} `json:"types"`
+	Types []struct {
+		Slot int `json:"slot"`
+		Type struct {
+			Name string `json:"name"`
+			URL  string `json:"url"`
+		} `json:"type"`
+	} `json:"types"`
 	//
 	// PastTypes []any `json:"past_types"`
 }
